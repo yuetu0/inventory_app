@@ -15,7 +15,20 @@ class _HomeState extends State<Home> {
        title: Text('Home'),
        centerTitle:true,
      ),
-  
+    body: Container(
+      child: Row(
+        children: <Widget> [
+          RaisedButton(
+            onPressed: null,
+            child:Text('All Items'),
+            ),
+          RaisedButton(
+            onPressed: null,
+            child: Text ('Add Item')
+            )
+        ],
+        )
+      )
     );
   }
 }
