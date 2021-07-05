@@ -15,7 +15,7 @@ class _HomeState extends State<Home> {
        title: Text('Home'),
        centerTitle:true,
      ),
-      
+  
     );
   }
 }
