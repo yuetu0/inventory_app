@@ -12,6 +12,8 @@ class _AllItemsState extends State<AllItems> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
+        title : Text("All Items"),
+        centerTitle : true,
       ),
     );
   }

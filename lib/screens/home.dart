@@ -17,6 +17,8 @@ class _HomeState extends State<Home> {
      ),
     body: Container(
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget> [
           RaisedButton(
             onPressed: (){
