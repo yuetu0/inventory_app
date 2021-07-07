@@ -6,6 +6,7 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
+
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
@@ -16,10 +17,10 @@ class _HomeState extends State<Home> {
        centerTitle:true,
      ),
     body: Container(
-      child: Row(
+      child: Column(
         //allignment for row still need to edit 
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         //buttons
         children: <Widget> [
           RaisedButton(
@@ -30,7 +31,7 @@ class _HomeState extends State<Home> {
             child:Text('All Items'),
             ),
           RaisedButton(
-            onPressed: null,
+            onPressed: (){},
             child: Text ('Add Item')
             )
         ],

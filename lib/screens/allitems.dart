@@ -15,6 +15,10 @@ class _AllItemsState extends State<AllItems> {
         title : Text("All Items"),
         centerTitle : true,
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: (){},
+      ),
     );
   }
 }
