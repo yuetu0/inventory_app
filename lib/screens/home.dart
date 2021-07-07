@@ -17,10 +17,13 @@ class _HomeState extends State<Home> {
      ),
     body: Container(
       child: Row(
+        //allignment for row still need to edit 
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
+        //buttons
         children: <Widget> [
           RaisedButton(
+            //onpressed leads to other 
             onPressed: (){
               Navigator.of(context).pushNamed('/allitems');
             },
