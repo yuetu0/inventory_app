@@ -19,7 +19,9 @@ class _HomeState extends State<Home> {
       child: Row(
         children: <Widget> [
           RaisedButton(
-            onPressed: null,
+            onPressed: (){
+              Navigator.of(context).pushNamed('/allitems');
+            },
             child:Text('All Items'),
             ),
           RaisedButton(

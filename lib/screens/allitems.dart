@@ -10,7 +10,9 @@ class _AllItemsState extends State<AllItems> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+      ),
     );
   }
 }
