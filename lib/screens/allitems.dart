@@ -17,6 +17,7 @@ class _AllItemsState extends State<AllItems> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
+        backgroundColor: Colors.blue,
         onPressed: (){},
       ),
     );

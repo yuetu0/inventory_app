@@ -13,30 +13,59 @@ class _HomeState extends State<Home> {
     return Scaffold(
      appBar: AppBar(
        backgroundColor: Colors.blue,
-       title: Text('Home'),
+       title: Text('Inventory App'),
        centerTitle:true,
      ),
-    body: Container(
+    body: Center(
       child: Column(
         //allignment for row still need to edit 
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         //buttons
         children: <Widget> [
-          RaisedButton(
+          new Container(
+            width: 150.0,
+            height: 150.0,
+            child: RaisedButton(
+              textColor: Colors.white,
+              color: Colors.blue,
             //onpressed leads to other 
             onPressed: (){
               Navigator.of(context).pushNamed('/allitems');
             },
-            child:Text('All Items'),
-            ),
-          RaisedButton(
-            onPressed: (){},
-            child: Text ('Add Item')
+            
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children:[
+                Padding(
+                   padding: const EdgeInsets.all(8.0),
+                    child: Icon(Icons.construction_rounded , color: Colors.white,),
+                ),
+                Text("All Items")
+              ]
             )
-        ],
+          )),
+          new Container(
+            height:150.0,
+            width: 150.0,
+
+          child: RaisedButton(
+          
+             textColor: Colors.white,
+            color: Colors.blue,
+            onPressed: (){},
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child:Icon(Icons.add, color:Colors.white),
+                  ),
+                  Text("Add Items"),
+              ],
         )
-      )
-    );
-  }
-}
+          )),
+          ],
+          ),
+        )
+        );
+          }}
