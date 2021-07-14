@@ -15,11 +15,23 @@ class _AllItemsState extends State<AllItems> {
         title : Text("All Items"),
         centerTitle : true,
       ),
+      body:Container(
+
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         backgroundColor: Colors.blue,
         onPressed: (){},
       ),
+    );
+  }
+}
+
+class ItemTile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
     );
   }
 }
