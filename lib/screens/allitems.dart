@@ -7,6 +7,11 @@ class AllItems extends StatefulWidget {
 }
 
 class _AllItemsState extends State<AllItems> {
+  getItemFromSheet(){
+    
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,10 +33,21 @@ class _AllItemsState extends State<AllItems> {
 }
 
 class ItemTile extends StatelessWidget {
+  final String picture;
+  final String name;
+  final String amount;
+  
+  ItemTile ({this.picture, this.name, this.amount});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      
+      child: Column(children: [
+        Row(children: [
+          Image.network(picture),
+        ],) 
+        ],
+      ),
     );
   }
 }
