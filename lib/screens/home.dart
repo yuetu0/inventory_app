@@ -22,6 +22,7 @@ class _HomeState extends State<Home> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         //buttons
         children: <Widget> [
+          //conatiner 1
           new Container(
             width: 150.0,
             height: 150.0,

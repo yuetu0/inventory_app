@@ -1,15 +1,22 @@
-class Item{
-  final int amount;
-  final String name;
-  Item({this.amount, this.name});
-}
+class ItemModel{
+  String picture;
+  String name;
+  String amount;
 
+  ItemModel({this.picture, this.name, this.amount});
 
-class DatabaseHelper{
+  factory ItemModel.fromJSON(dynamic json){
+    return ItemModel(
+      picture:"${json['Picture']}",
+      name:"${json['Name']}",
+      amount:"${json['Amount']}",
+      
+    );
+  }
 
-static final _databaseName = "items.db";
-static final _databaseVersion = 1; 
-
-DatabaseHelper._privateConstructor();
- static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
+  Map toJson() =>{
+    "Picture" : picture,
+    "Name": name,
+    "Amount": amount
+  };
 }
