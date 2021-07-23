@@ -5,7 +5,7 @@ class ItemModel{
 
   ItemModel({this.picture, this.name, this.amount});
 
-  factory ItemModel.fromJSON(dynamic json){
+  factory ItemModel.fromJson(dynamic json){
     return ItemModel(
       picture:"${json['Picture']}",
       name:"${json['Name']}",

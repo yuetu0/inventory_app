@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:developer' as logger;
 
 class Home extends StatefulWidget {
 
@@ -21,8 +22,10 @@ class _HomeState extends State<Home> {
         //allignment for row still need to edit 
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         //buttons
+        
         children: <Widget> [
-          //conatiner 1
+         
+          //container 1
           new Container(
             width: 150.0,
             height: 150.0,
@@ -32,6 +35,7 @@ class _HomeState extends State<Home> {
             //onpressed leads to other 
             onPressed: (){
               Navigator.of(context).pushNamed('/allitems');
+              logger.log("hello");
             },
             
             child: Column(
@@ -45,6 +49,7 @@ class _HomeState extends State<Home> {
               ]
             )
           )),
+       
           new Container(
             height:150.0,
             width: 150.0,
