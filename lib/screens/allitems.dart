@@ -17,7 +17,7 @@ class _AllItemsState extends State<AllItems> {
   List<ItemModel> items = List<ItemModel>();
   getItemFromSheet() async {
       //Uri.https('script.google.com', '/macros/s/AKfycbyRF-QWg2Dh85KOrldzUGghmph9Ose0qEABG4FPhe4QFQ2MuElv/exec', {'q': '{http}'});
-    var raw = await http.get(Uri.parse("https://script.google.com/macros/s/AKfycbyDC3ph7ka5GmzRs7t-aZGDHove1veyspYk7bqXLUKFkkCB2Dy7/exec"));
+    var raw = await http.get(Uri.parse("https://script.google.com/macros/s/AKfycbzqYAGjj5tD1ZUhPdugDR6-dCiQ16iFA7lo66JXW9esSgTa57Pv/exec"));
     var jsonItem = convert.jsonDecode(raw.body);
     //print('this is the $jsonItem');
     //items = jsonItem.map((json) => ItemModel.fromJSON(json));
@@ -25,9 +25,9 @@ class _AllItemsState extends State<AllItems> {
     jsonItem.forEach((element){
       debugPrint('$element THIS IS NEXT>>>>>>>');
       ItemModel itemModel = new ItemModel();
-      itemModel.picture = element['Picture'];
       itemModel.name = element['Name'];
       itemModel.amount = element['Amount'];
+      itemModel.description = element['Description'];
 
       items.add(itemModel);
     });
@@ -53,9 +53,9 @@ class _AllItemsState extends State<AllItems> {
           itemCount: items.length,
           itemBuilder: (context,index){
             return ItemTile(
-              picture: items[index].picture,
-              name : items[index].name,
-              amount: items[index].amount,
+              name: items[index].name,
+              amount : items[index].amount,
+              description: items[index].description,
             );
           },
         )
@@ -70,17 +70,22 @@ class _AllItemsState extends State<AllItems> {
 }
 
 class ItemTile extends StatelessWidget {
-  final String picture, name, amount;
+  final String name, amount, description;
   
-  ItemTile ({this.picture, this.name, this.amount});
+  ItemTile ({this.name, this.amount, this.description});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(16),
       child: Column(
         children: [
-        Row(children: [Image.network(picture)],
+        Container(
 
+          child: Row(children: [
+            Text(name),
+            Text(amount),
+          ],)
         ) 
         ],
       ),

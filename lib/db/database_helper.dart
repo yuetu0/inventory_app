@@ -1,22 +1,22 @@
 class ItemModel{
-  String picture;
   String name;
   String amount;
+  String description;
 
-  ItemModel({this.picture, this.name, this.amount});
+  ItemModel({this.name, this.amount, this.description});
 
   factory ItemModel.fromJson(dynamic json){
     return ItemModel(
-      picture:"${json['Picture']}",
       name:"${json['Name']}",
       amount:"${json['Amount']}",
+      description:"${json['Description']}",
       
     );
   }
 
   Map toJson() =>{
-    "Picture" : picture,
-    "Name": name,
-    "Amount": amount
+    "Name" : name,
+    "Amount": amount,
+    "Description": description
   };
 }
