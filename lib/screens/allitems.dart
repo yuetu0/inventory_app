@@ -4,7 +4,6 @@ import 'dart:developer' as logger;
 import 'package:http/http.dart' as http;
 import 'package:inventory_app/db/database_helper.dart';
 import 'dart:convert' as convert;
-import 'dart:async';
 
 class AllItems extends StatefulWidget {
 
@@ -14,16 +13,15 @@ class AllItems extends StatefulWidget {
 
 class _AllItemsState extends State<AllItems> {
 
+  // ignore: deprecated_member_use
   List<ItemModel> items = List<ItemModel>();
   getItemFromSheet() async {
-      //Uri.https('script.google.com', '/macros/s/AKfycbyRF-QWg2Dh85KOrldzUGghmph9Ose0qEABG4FPhe4QFQ2MuElv/exec', {'q': '{http}'});
-    var raw = await http.get(Uri.parse("https://script.google.com/macros/s/AKfycbzqYAGjj5tD1ZUhPdugDR6-dCiQ16iFA7lo66JXW9esSgTa57Pv/exec"));
+    String url = "https://script.google.com/macros/s/AKfycbzqYAGjj5tD1ZUhPdugDR6-dCiQ16iFA7lo66JXW9esSgTa57Pv/exec";
+    var raw = await http.get(Uri.parse(url));
     var jsonItem = convert.jsonDecode(raw.body);
-    //print('this is the $jsonItem');
-    //items = jsonItem.map((json) => ItemModel.fromJSON(json));
 
     jsonItem.forEach((element){
-      debugPrint('$element THIS IS NEXT>>>>>>>');
+      print('$element THIS IS NEXT>>>>>>>');
       ItemModel itemModel = new ItemModel();
       itemModel.name = element['Name'];
       itemModel.amount = element['Amount'];
@@ -34,12 +32,7 @@ class _AllItemsState extends State<AllItems> {
 
   }
 
-  @override
-  void initState() {
-    getItemFromSheet();
-    super.initState();
-    logger.log('init state');
-  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,13 +73,10 @@ class ItemTile extends StatelessWidget {
       padding: EdgeInsets.all(16),
       child: Column(
         children: [
-        Container(
-
-          child: Row(children: [
+        Row(children: [
             Text(name),
             Text(amount),
           ],)
-        ) 
         ],
       ),
     );

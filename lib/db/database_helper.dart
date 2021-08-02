@@ -7,16 +7,16 @@ class ItemModel{
 
   factory ItemModel.fromJson(dynamic json){
     return ItemModel(
-      name:"${json['Name']}",
-      amount:"${json['Amount']}",
-      description:"${json['Description']}",
+      name: "${json['Name']}",
+      amount: "${json['Amount']}",
+      description: "${json['Description']}",
       
     );
   }
 
-  Map toJson() =>{
+  Map toJson() => {
     "Name" : name,
     "Amount": amount,
-    "Description": description
+    "Description": description,
   };
 }
