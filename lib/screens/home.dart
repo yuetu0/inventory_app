@@ -58,7 +58,8 @@ class _HomeState extends State<Home> {
           
              textColor: Colors.white,
             color: Colors.blue,
-            onPressed: (){},
+            onPressed: (){
+              Navigator.of(context).pushNamed('/additems');},
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
