@@ -3,8 +3,7 @@ import '../model/form.dart';
 import '../controller/form_controller.dart';
 
 class AddItems extends StatefulWidget {
-
-    AddItems({Key key, this.title}) : super(key: key);
+  AddItems({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -13,8 +12,7 @@ class AddItems extends StatefulWidget {
 }
 
 class _AddItemsState extends State<AddItems> {
-
-    // Create a global key that uniquely identifies the Form widget
+  // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
   //
   // Note: This is a `GlobalKey<FormState>`,
@@ -34,9 +32,10 @@ class _AddItemsState extends State<AddItems> {
     if (_formKey.currentState.validate()) {
       // If the form is valid, proceed.
       FeedbackForm feedbackForm = FeedbackForm(
-          nameController.text,
-          amountController.text,
-          descriptionController.text,);
+        nameController.text,
+        amountController.text,
+        descriptionController.text,
+      );
 
       FormController formController = FormController();
 
@@ -55,29 +54,29 @@ class _AddItemsState extends State<AddItems> {
       });
     }
   }
-  
+
   // Method to show snackbar with 'message'.
   _showSnackbar(String message) {
-      final snackBar = SnackBar(content: Text(message));
-      _scaffoldKey.currentState.showSnackBar(snackBar); 
+    final snackBar = SnackBar(content: Text(message));
+    _scaffoldKey.currentState.showSnackBar(snackBar);
   }
 
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,  
+      key: _scaffoldKey,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text("Add Items"),
       ),
       body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Form(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Form(
                 key: _formKey,
-                child:
-                  Padding(padding: EdgeInsets.all(16),
+                child: Padding(
+                  padding: EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -89,9 +88,7 @@ class _AddItemsState extends State<AddItems> {
                           }
                           return null;
                         },
-                        decoration: InputDecoration(
-                          labelText: 'Name'
-                        ),
+                        decoration: InputDecoration(labelText: 'Name'),
                       ),
                       TextFormField(
                         controller: amountController,
@@ -101,10 +98,8 @@ class _AddItemsState extends State<AddItems> {
                           }
                           return null;
                         },
-                         keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelText: 'Amount'
-                        ),
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(labelText: 'Amount'),
                       ),
                       TextFormField(
                         controller: descriptionController,
@@ -120,18 +115,16 @@ class _AddItemsState extends State<AddItems> {
                       ),
                     ],
                   ),
-                ) 
-              ),
-              RaisedButton(
-                color: Colors.blue,
-                textColor: Colors.white,
-                onPressed:_submitForm,
-                child: Text('Submit Item'),
-              ),
-            ],
-          ),
+                )),
+            RaisedButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              onPressed: _submitForm,
+              child: Text('Submit Item'),
+            ),
+          ],
         ),
+      ),
     );
   }
 }
-

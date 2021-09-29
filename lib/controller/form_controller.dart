@@ -21,10 +21,7 @@ class FormController {
           .then((response) async {
         if (response.statusCode == 302) {
           var url = response.headers['location'];
-          await http.get(Uri.parse(url), headers: {
-            'Content-Type': 'application/json',
-            'Charset': 'utf-8',
-          }).then((response) {
+          await http.get(Uri.parse(url)).then((response) {
             callback(convert.jsonDecode(response.body)['status']);
           });
         } else {

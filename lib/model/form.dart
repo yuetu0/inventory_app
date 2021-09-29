@@ -6,10 +6,9 @@ class FeedbackForm {
   FeedbackForm(this.name, this.amount, this.description);
 
   factory FeedbackForm.fromJson(dynamic json) {
-    return FeedbackForm("${json['name']}", "${json['amount']}",
-        "${json['description']}");
-
-}
+    return FeedbackForm(
+        "${json['name']}", "${json['amount']}", "${json['description']}");
+  }
 
   // Method to make GET parameters.
   Map toJson() => {
