@@ -45,4 +45,10 @@ class ItemSheetsApi {
       return spreadsheet.worksheetByTitle(title)!;
     }
   }
+
+  static Future insert(List<Map<String, dynamic>> rowList) async {
+    if (_itemSheet == null) return;
+
+    _itemSheet!.values.map.appendRows(rowList);
+  }
 }

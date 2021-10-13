@@ -1,5 +1,4 @@
-import 'dart:html';
-
+import '/model/item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:inventory_app/api/sheets/item_sheets_api.dart';
@@ -8,7 +7,7 @@ import '/widget/button_widget.dart';
 import 'package:gsheets/src/gsheets.dart';
 import 'package:gsheets/gsheets.dart';
 
-class CreateSheetsPage extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
@@ -22,9 +21,11 @@ class CreateSheetsPage extends StatelessWidget {
             text: 'Save',
             onClicked: () async {
               final item = {
-                ItemFields.amount = 'hammer',
+                ItemFields.amount: '105',
+                ItemFields.name: "nails",
+                ItemFields.description: "silver",
               };
-              await ItemSheetsApi.insert([user]);
+              await ItemSheetsApi.insert([item]);
             },
           )));
 }
