@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:inventory_app/screens/home.dart';
-import 'package:inventory_app/screens/allitems.dart';
-import 'package:inventory_app/screens/additems.dart';
+import 'package:flutter/services.dart';
+import '/api/sheets/item_sheets_api.dart';
 
-void main() {
-  runApp(MaterialApp(
-    initialRoute: '/home',
-    routes:{
-      '/home':(context)=> Home(),
-      '/allitems':(context)=>AllItems(),
-      '/additems':(context)=>AddItems(),
-    }
-  ));
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await ItemSheetsApi.init();
+
+  runApp(MyApp());
 }
 
+class MyApp extends StatelessWidget {
+  static final String title = "Robotics Inventory";
+
+  @override
+  Widget build(BuildContext context) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: title,
+        theme: ThemeData(primarySwatch: Colors.blue),
+        home: Container(),
+      );
+}
