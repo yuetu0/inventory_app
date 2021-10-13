@@ -7,7 +7,7 @@ import '/widget/button_widget.dart';
 import 'package:gsheets/src/gsheets.dart';
 import 'package:gsheets/gsheets.dart';
 
-class MyApp extends StatelessWidget {
+class CreateSheetsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
